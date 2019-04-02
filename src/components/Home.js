@@ -16,22 +16,15 @@ const Home = () => <div>
 <p className= "font">If you don’t know what to get, here are some of the best flowers to buy for any occasion. With Teleflora, you can buy cheerful birthday blooms, thoughtful Mother's Day bouquets, funeral and sympathy flower arrangements, and your everyday beautiful florals. </p>
 
 
-<div className="row">
-<div className="col-sm-4">
-<div className="thumbnail">
-<div className="row"> <img src={flower} width="600" height="300"  alt=" Florist"/>  <img src={flower2} width="600" height="300"  alt=" Florist"/> <img src={flower3} width="600" height="300"  alt=" Florist"/> 
-</div>
-
-</div>
-
-</div>
-
+<div className="flex-container"> <img className=" home" src={flower} width="600" height="300"  alt=" Florist"/>  <img className=" home" src={flower2} width="600" height="300"  alt=" Florist"/> 
 </div>
 
 
 
-<h4>Contact Us</h4>
+
+<footer><h4>Contact Us</h4>
 <SocialIcon url="http://linkedin.com/in/jaketrent" /> <SocialIcon network="twitter" /> <SocialIcon network="pinterest"/>
+</footer>
 
 </div>;
 

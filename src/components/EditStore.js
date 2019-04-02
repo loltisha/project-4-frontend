@@ -8,6 +8,7 @@ class EditStore extends Component {
       location: "",
       email: "",
       phone: "",
+      image: "",
     },
     err: null
   };
@@ -71,7 +72,7 @@ class EditStore extends Component {
   render() {
     return (
       <div className="pt-5 mt-5">
-        <h1>Please Enter The Store Information</h1>
+        <h1>Please Edit The Store Information</h1>
         {this.state.err ? (
           <div className="alert alert-danger"> {this.state.err} </div>
         ) : (
@@ -109,6 +110,14 @@ class EditStore extends Component {
               type="phone"
               onChange={this.handleChange}
               value={this.state.formData.phone}
+            />
+            <label> Store Image</label>
+            <input
+              name="image"
+              className="form-control"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.formData.image}
             />
           </div>
 

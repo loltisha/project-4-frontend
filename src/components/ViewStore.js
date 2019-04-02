@@ -79,16 +79,16 @@ class ViewStore extends React.Component {
       }
       const stores = this.state.stores.map(stores => {
         return (
-          <div>
+          <div className="col-6">
             <div className="card" style={{width: "30rem"}}>
-              {/* <img className="card-img-top" src="..." alt="Card image cap"/> */}
+               <img className="card-img-top" src={stores.image} width="600" height="300" alt="Card image cap"/> 
               <div className="card-body">
                 {/* <h5 className="card-title">florist store</h5> */}
                 <ul className="list-group list-group-flush">
-                <li className="list-group-item"><h3>store: </h3> <p>{stores.store_name} </p></li>
-                <li className="list-group-item"><h3>location: </h3> <p>{stores.location} </p></li>
-                <li className="list-group-item"><h3>email: </h3> <p>{stores.email} </p></li>
-                <li className="list-group-item"><h3>phone: </h3> <p>{stores.phone} </p></li>
+                <li className="list-group-item"><h3>Store: </h3> <p>{stores.store_name} </p></li>
+                <li className="list-group-item"><h3>Location: </h3> <p>{stores.location} </p></li>
+                <li className="list-group-item"><h3>Email: </h3> <p>{stores.email} </p></li>
+                <li className="list-group-item"><h3>Phone: </h3> <p>{stores.phone} </p></li>
               </ul>
               </div>
               {/* <ul className="list-group list-group-flush">
@@ -107,10 +107,10 @@ class ViewStore extends React.Component {
       });
 
      return <div className="row">
-      <div className="col-sm">
+      
         {stores}
         {noStores}
-      </div>
+    
      </div>;
   }
 }
