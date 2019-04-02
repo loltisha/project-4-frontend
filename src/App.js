@@ -7,10 +7,13 @@ import SignupForm from "./components/authForm.js/SignupForm";
 import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import AddStore from "./components/AddStore";
+import ViewStore from "./components/ViewStore";
+import EditStore from "./components/EditStore";
 class App extends Component {
   state = {
     user: null,
-    activePage: "home"
+    activePage: "home",
+    storeId: null
   };
   componentDidMount() {
     // check if we have a token in the local storage
@@ -25,14 +28,22 @@ class App extends Component {
   };
   onSignin = () => {
     this.setState({ user: getUser() });
-    this.changeActivePage("addstore");
-    AddStore();
+    this.changeActivePage("sigin in");
+    // this.changeActivePage("add-store");
+    
   };
   onSignout = () => {
     console.log("sigin out");
     this.setState({ user: null });
+    this.changeActivePage("home")
     Signout();
   };
+
+  changeToEditStore = (id) => {
+    console.log(id)
+    this.setState({ storeId: id});
+    this.changeActivePage("edit-store");
+  }
 
  
   render() {
@@ -63,7 +74,10 @@ class App extends Component {
           ) : (
             ""
           )}
-          {activePage === "addstore" ? <AddStore /> : ""}
+          {activePage === "add-store" ? <AddStore changeActivePage={this.changeActivePage} /> : ""}
+          {activePage === "view-store" ? <ViewStore changeActivePage={this.changeActivePage} changeToEditStore={this.changeToEditStore} /> : ""}
+          {activePage === "edit-store" ? <EditStore changeActivePage={this.changeActivePage} 
+                                                    id={this.state.storeId} /> : ""}
         </div>
       </div>
     );

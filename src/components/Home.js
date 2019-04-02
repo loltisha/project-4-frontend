@@ -1,10 +1,37 @@
 import React from "react";
+import flower from "../image/ppflorist-vert-3624.jpg";
+import flower2 from "../image/ff.jpg"
+import flower3 from "../image/images1.jpeg";
+import ReactDOM from 'react-dom';
+import { SocialIcon } from 'react-social-icons';
+
 
 const Home = () => <div>
-<img src="src/image/florist.png" width="60" height="60"  alt=" Florist"/>
-<h1>About Us</h1>
-<p>Florist is an online system that connects the end users with flower stores.</p>
-<img src="src/image/ppflorist-vert-3624.jpg"  alt=" Florist"/>
+{/* <img src="src/image/florist.png" width="60" height="60"  alt=" Florist"/> */}
+<h1>Flower Delivery from Florist</h1>
+<hr></hr>
+<h4>Bouquets Hand-Delivered by a Local Florist</h4>
+<p className= "font">We are proud to offer beautiful flowers that are always hand-arranged and hand-delivered by local florists. We make it easy to send flowers, you can order online from your desktop, tablet, or phone. </p>
+<h4>Send Fresh Flowers for Every Occasion</h4>
+<p className= "font">If you don’t know what to get, here are some of the best flowers to buy for any occasion. With Teleflora, you can buy cheerful birthday blooms, thoughtful Mother's Day bouquets, funeral and sympathy flower arrangements, and your everyday beautiful florals. </p>
+
+
+<div className="row">
+<div className="col-sm-4">
+<div className="thumbnail">
+<div className="row"> <img src={flower} width="600" height="300"  alt=" Florist"/>  <img src={flower2} width="600" height="300"  alt=" Florist"/> <img src={flower3} width="600" height="300"  alt=" Florist"/> 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<h4>Contact Us</h4>
+<SocialIcon url="http://linkedin.com/in/jaketrent" /> <SocialIcon network="twitter" /> <SocialIcon network="pinterest"/>
 
 </div>;
 

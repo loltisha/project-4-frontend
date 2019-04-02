@@ -1,44 +1,65 @@
 import React, { Component } from "react";
 import apiUrl from "../apiConfig";
 import { setUser } from "../services/AuthService";
-class Addstore extends Component {
+class EditStore extends Component {
   state = {
     formData: {
-      store_name: null,
-      location: null,
-      email: null,
-      phone: null,
+      store_name: "",
+      location: "",
+      email: "",
+      phone: "",
     },
     err: null
   };
 
-  handleLoginRequest = user => {
-    let url = `${apiUrl}/api/store`;
+  componentDidMount(){
+    let url = `${apiUrl}/api/store/${this.props.id}`;
 
     console.log(url);
     fetch(url, {
       mode: "cors",
       credentials: "include",
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-type": "application/json"
-      },
-      body: JSON.stringify(user)
+      }
     })
       .then(res => res.json())
       .then(data => {
         if (data.status > 200) this.setState({ err: data.message });
         else {
-          this.setState({ err: null });
-          alert("store added");
-          this.props.changeActivePage("home");
+            console.log(data)
+          this.setState({ formData: data.store });
+        }
+      })
+      .catch(e => console.log(e));
+  }
+  handleUpdateRequest = store => {
+    let url = `${apiUrl}/api/store/${this.props.id}`;
+
+    console.log(url);
+    fetch(url, {
+      mode: "cors",
+      credentials: "include",
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({store: store})
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status > 200) this.setState({ err: data.message });
+        else {
+            alert("store edited");
+            this.props.changeActivePage("home");
         }
       })
       .catch(e => console.log(e));
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.handleLoginRequest(this.state.formData);
+    this.handleUpdateRequest(this.state.formData);
   };
 
   handleChange = ({ currentTarget }) => {
@@ -63,6 +84,7 @@ class Addstore extends Component {
               name="store_name"
               className="form-control"
               onChange={this.handleChange}
+              value={this.state.formData.store_name}
             />
             <label>Location</label>
             <input
@@ -70,6 +92,7 @@ class Addstore extends Component {
               className="form-control"
               type="location"
               onChange={this.handleChange}
+              value={this.state.formData.location}
             />
             <label> Email</label>
             <input
@@ -77,6 +100,7 @@ class Addstore extends Component {
               className="form-control"
               type="email"
               onChange={this.handleChange}
+              value={this.state.formData.email}
             />
             <label> Phone Number</label>
             <input
@@ -84,11 +108,12 @@ class Addstore extends Component {
               className="form-control"
               type="phone"
               onChange={this.handleChange}
+              value={this.state.formData.phone}
             />
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Add Store
+            Edit Store
           </button>
         </form>
       </div>
@@ -96,4 +121,4 @@ class Addstore extends Component {
   }
 }
 
-export default Addstore;
+export default EditStore;

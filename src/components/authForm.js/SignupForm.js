@@ -7,7 +7,7 @@ class SignupForm extends Component {
       email: null,
       password: null,
       password_confirmation: null,
-      type: null
+      type: "florist"
     },
     err: null
   };
@@ -15,6 +15,7 @@ class SignupForm extends Component {
   handleLoginRequest = user => {
     let url = `${apiUrl}/sign-up`;
 
+    console.log("\n\n\n ****  "  , user)
     fetch(url, {
       mode: "cors",
       credentials: "include",
@@ -26,7 +27,8 @@ class SignupForm extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.error) this.setState({ err: data.error });
+        if (data.status > 299) 
+          this.setState({ err: data.message});
         else {
           setUser(data);
           this.props.onSignin();
@@ -41,6 +43,7 @@ class SignupForm extends Component {
 
   handleChange = ({ currentTarget }) => {
     const formData = { ...this.state.formData };
+    console.log("\n\n\n\n _____" , currentTarget.name , currentTarget.value )
     formData[currentTarget.name] = currentTarget.value;
     this.setState({ formData });
   };
@@ -89,7 +92,7 @@ class SignupForm extends Component {
              
           </div>
           </div> */}
-          <select  name="type"
+          <select name="type"
               className="form-control slectUser"
               onChange={this.handleChange}
               >

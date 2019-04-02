@@ -1,10 +1,17 @@
 import React from "react";
+import logo from "../image/florist.png";
 
 const authenticatedOptions = (changeActivePage, onSignout) => (
   <React.Fragment>
-    <li className="nav-item" onClick={() => onSignout()}>
-      <div className="nav-link">Add store</div>
+    <li className="nav-item" onClick={() => changeActivePage("add-store")}>
+      <div className="nav-link">Add Store</div>
     </li>
+    <li className="nav-item" onClick={() => changeActivePage("view-store")}>
+      <div className="nav-link">View Store</div>
+    </li>
+    {/* <li className="nav-item" onClick={() => changeActivePage("edit-store")}>
+      <div className="nav-link">Edit Store</div>
+    </li> */}
     <li
       className="nav-item"
       onClick={() => changeActivePage("change-password")}
@@ -36,12 +43,12 @@ const alwaysOptions = changeActivePage => (
   </React.Fragment>
 );
 
-const Nav = ({ user, changeActivePage, onSignout }) => (
+const Nav = ({ user, changeActivePage,  onSignout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{backgroundColor: '#ff6347' }}>
-    <div className="navbar-brand">Navbar</div>
+    <div className="navbar-brand">Florist</div>
    
 <nav className="navbar navbar-light bg-light">
-    <img src="src/image/florist.png" width="60" height="60" className="d-inline-block align-top" alt=""/>
+    <img src={logo} width="80" height="80" className="d-inline-block align-top" alt=""/>
 </nav>
     <button
       className="navbar-toggler"
