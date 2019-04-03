@@ -14,32 +14,41 @@ thumbnail {
   }
 
 .font{
-    font-family: cursive;
-    font-size: 20px;
-    color: rgb(121, 40, 67);
+  margin-top: 20px;
+  font-family: 'Aclonica';
+  font-size: 22px;    
+  color: rgb(0, 141, 177);
   }
 h4{
-    font-family: Monospace;
+    font-family: 'Autour One';
     font-weight: bold;
     text-decoration: underline;
+    color: palevioletred;
     
 
   }
 h1{
-    color: rgb(70, 12, 124);
+    color: rgb(164, 117, 207);
+    font-family: 'Chelsea Market';
+    margin-top: 5px;
   }
 .card{
-    margin-top: 100px ;
+    margin-top: 20px ;
     margin-left: 50px;
   }
+label{
+  color:rgb(255, 90, 189) !important; 
 
+}
 .btn-warning { 
    margin-right: 15px;
    background-color:rgb(255, 171, 74)!important; 
    color: bisque!important; 
   }
-label{
-
+.navbar-brand{
+color:rgb(255, 90, 189) !important; 
+font-family: 'Sofia'!important; 
+font-size: 40px !important; ;
 }
 .flex-container {
   display: flex;
@@ -47,11 +56,35 @@ label{
 .home{
   margin-top: 30px;
   margin-right: 10px;
+  border-radius: 8px;
 }
 footer{
   text-align: center;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 /* .form{
   text-align: center;
 } */
+.msg{
+  text-align: center; 
+ 
+}
+ .no{
+ 
+  margin-top: 200px;
+  margin-left: 400px; 
+} 
+.nav-link{
+  color:rgb(238, 136, 3) !important; 
+  font-size: 20px !important; ;
+}
+.list-group-item{
+  color: rgb(0, 141, 177)!important;
+}
+.formColor{
+  color: green;
+  font-size: 20px;
+}
+.down{
+  margin-top: 10px;
+}

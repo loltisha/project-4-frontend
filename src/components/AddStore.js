@@ -32,7 +32,7 @@ class Addstore extends Component {
         else {
           this.setState({ err: null });
           alert("store added");
-          this.props.changeActivePage("home");
+          this.props.changeToAddFlower(data.store.id);
         }
       })
       .catch(e => console.log(e));
@@ -97,7 +97,6 @@ class Addstore extends Component {
               className="form-control"
               type="text"
               onChange={this.handleChange}
-              value={this.state.formData.image}
             />
           </div>
 

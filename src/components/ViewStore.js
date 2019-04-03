@@ -73,7 +73,7 @@ class ViewStore extends React.Component {
   render() {
       let noStores;
       if (this.state.stores.length === 0) {
-        noStores = <p>You have no stores, please add one</p>
+        noStores = <div className="alert alert-danger no" role="alert"> <p className="msg">You have no stores, please add one 🙁💐</p></div>
       } else {
         noStores = ""
       }
@@ -85,10 +85,10 @@ class ViewStore extends React.Component {
               <div className="card-body">
                 {/* <h5 className="card-title">florist store</h5> */}
                 <ul className="list-group list-group-flush">
-                <li className="list-group-item"><h3>Store: </h3> <p>{stores.store_name} </p></li>
-                <li className="list-group-item"><h3>Location: </h3> <p>{stores.location} </p></li>
-                <li className="list-group-item"><h3>Email: </h3> <p>{stores.email} </p></li>
-                <li className="list-group-item"><h3>Phone: </h3> <p>{stores.phone} </p></li>
+                <li className="list-group-item"><h3>Store: </h3> <p className="formColor">{stores.store_name} </p></li>
+                <li className="list-group-item"><h3>Location: </h3> <p className="formColor">{stores.location} </p></li>
+                <li className="list-group-item"><h3>Email: </h3> <p className="formColor">{stores.email} </p></li>
+                <li className="list-group-item"><h3>Phone: </h3> <p className="formColor">{stores.phone} </p></li>
               </ul>
               </div>
               {/* <ul className="list-group list-group-flush">
@@ -98,8 +98,11 @@ class ViewStore extends React.Component {
                 <li className="list-group-item"><h3>phone: </h3> <p>{stores.phone} </p></li>
               </ul> */}
               <div className="card-body">
-              <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditStore(stores.id)} href="#" className="card-link">Edit </a></button>
-                <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleStoreDeleteRequest(stores.id, event)} href="#" className="card-link">delete</a></button>
+                <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditStore(stores.id)} href="#" className="card-link">Edit Store </a></button>
+                <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleStoreDeleteRequest(stores.id, event)} href="#" className="card-link">delete Store</a></button>
+                <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToAddFlower(stores.id)} href="#" className="card-link">Add Flower </a></button>
+
+                <button type="button" className="btn btn-warning down"><a onClick={() => this.props.changeToViewFlower(stores.id)} href="#" className="card-link">View Flowers </a></button>
               </div>
             </div> 
           </div>

@@ -30,6 +30,8 @@ class SigninForm extends Component {
           this.setState({ err: null });
           setUser(data);
           this.props.onSignin();
+         
+
         }
       })
       .catch(e => console.log(e));
