@@ -77,7 +77,21 @@ class ViewFlower extends React.Component {
       } else {
         noflowers = ""
       }
+      
       const flowers = this.state.flowers.map(flowers => {
+        // FLORIST BUTTONS
+        let floristButtons;
+        const userType = getUser().type;
+        if (userType === "florist") {
+          floristButtons = <div>
+            <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditFlower(flowers.id)} href="#" className="card-link">Edit Flower </a></button> 
+            <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleFlowerDeleteRequest(flowers.id, event)} href="#" className="card-link">delete Flower</a></button>
+            </div>
+        }else{
+            floristButtons=<button type="button" className="btn btn-warning down"><a href="#" className="card-link">Buy Flower </a></button>
+            ;
+            }
+        //
         return (
           <div className="col-6">
             <div className="card" style={{width: "30rem"}}>
@@ -92,8 +106,7 @@ class ViewFlower extends React.Component {
               </div>
             
               <div className="card-body">
-              <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditFlower(flowers.id)} href="#" className="card-link">Edit Flower </a></button> 
-              <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleFlowerDeleteRequest(flowers.id, event)} href="#" className="card-link">delete Flower</a></button>
+              {floristButtons}
 
               </div>
             </div> 

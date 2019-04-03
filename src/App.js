@@ -12,6 +12,7 @@ import EditStore from "./components/EditStore";
 import AddFlower from "./components/AddFlower";
 import ViewFlower from "./components/ViewFlower";
 import EditFlower from "./components/EditFlower";
+import rain from "./components/audio/Kiss the Rain - Yiruma.mp3";
 
 //  import rain from "../audio/KisstheRain-Yiruma-Arabsong.mp3";
 // import ReactAudioPlayer from 'react-audio-player';
@@ -47,7 +48,7 @@ class App extends Component {
   };
 
   changeToEditStore = (id) => {
-    console.log(id)
+    console.log('changeToEditStore ', id)
     this.setState({ storeId: id});
     this.changeActivePage("edit-store");
   }
@@ -72,7 +73,7 @@ class App extends Component {
     return (
       <div>
         
-        {/* <audio url ={rain} /> */}
+        <audio src ={rain} loop autoPlay />
         {/* <ReactAudioPlayer src= {rain} autoPlay controls/> */}
         <Nav
       

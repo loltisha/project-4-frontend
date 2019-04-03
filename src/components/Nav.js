@@ -1,28 +1,39 @@
 import React from "react";
 import logo from "../image/florist١٢.png";
+import { getUser } from "../services/AuthService";
 
-const authenticatedOptions = (changeActivePage, onSignout) => (
-  <React.Fragment>
-    <li className="nav-item" onClick={() => changeActivePage("add-store")}>
-      <div className="nav-link">Add Store</div>
-    </li>
-    <li className="nav-item" onClick={() => changeActivePage("view-store")}>
-      <div className="nav-link">View Store</div>
-    </li>
-    {/* <li className="nav-item" onClick={() => changeActivePage("edit-store")}>
-      <div className="nav-link">Edit Store</div>
-    </li> */}
-    <li
-      className="nav-item"
-      onClick={() => changeActivePage("change-password")}
-    >
-      <div className="nav-link">Change Password</div>
-    </li>
-    <li className="nav-item" onClick={() => onSignout()}>
-      <div className="nav-link">Sign Out</div>
-    </li>
-  </React.Fragment>
-);
+const authenticatedOptions = (changeActivePage, onSignout) => {
+  const userType = getUser().type
+  let addFlowerButton;
+  if (userType === "florist") {
+    addFlowerButton = (
+      <li className="nav-item" onClick={() => changeActivePage("add-store")}>
+        <div className="nav-link">Add Store</div>
+      </li>
+    )
+  } else {
+    addFlowerButton = ""
+  }
+  return (
+    <React.Fragment>
+      {addFlowerButton}
+      <li className="nav-item" onClick={() => changeActivePage("view-store")}>
+        <div className="nav-link">View Store</div>
+      </li>
+      {/* <li className="nav-item" onClick={() => changeActivePage("edit-store")}>
+        <div className="nav-link">Edit Store</div>
+      </li> */}
+      <li
+        className="nav-item"
+        onClick={() => changeActivePage("change-password")}
+      >
+        <div className="nav-link">Change Password</div>
+      </li>
+      <li className="nav-item" onClick={() => onSignout()}>
+        <div className="nav-link">Sign Out</div>
+      </li>
+    </React.Fragment>
+)};
 
 const unauthenticatedOptions = changeActivePage => (
   <React.Fragment>

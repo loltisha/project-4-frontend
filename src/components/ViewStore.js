@@ -13,7 +13,12 @@ class ViewStore extends React.Component {
     console.log("view store")
     const user = getUser();
     console.log("the user id is ", user.id);
-    const url = `${apiUrl}/api/user/${user.id}/stores`;
+    let url;
+    if (user.type === "florist") {
+      url = `${apiUrl}/api/user/${user.id}/stores`;
+    } else {
+      url = `${apiUrl}/api/stores`;
+    }
 
     fetch(url, {
       method: "GET",
@@ -30,8 +35,12 @@ class ViewStore extends React.Component {
 
       .then(data => {
           console.log(data);
-          this.setState({ stores: data.user.Stores })
-      })
+          if (user.type === "florist") {
+            this.setState({ stores: data.user.Stores })
+          } else {
+            this.setState({ stores: data.stores })
+          }
+        })
       .catch(e => console.log(e));
   }
 
@@ -71,13 +80,34 @@ class ViewStore extends React.Component {
   }
 
   render() {
+
+
+      // NO STORES MESSAGE
       let noStores;
       if (this.state.stores.length === 0) {
         noStores = <div className="alert alert-danger no" role="alert"> <p className="msg">You have no stores, please add one 🙁💐</p></div>
       } else {
         noStores = ""
       }
+
+      // FLORIST BUTTONS
+     
+
+      // LOOP THROUGH STORES
       const stores = this.state.stores.map(stores => {
+        let floristButtons;
+        const userType = getUser().type;
+        if (userType === "florist") {
+          floristButtons = (
+            <div>
+              <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditStore(stores.id)} href="#" className="card-link">Edit Store </a></button>
+              <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleStoreDeleteRequest(stores.id, event)} href="#" className="card-link">delete Store</a></button>
+              <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToAddFlower(stores.id)} href="#" className="card-link">Add Flower </a></button>
+            </div>
+          )
+        }else {
+          floristButtons = ""
+        }
         return (
           <div className="col-6">
             <div className="card" style={{width: "30rem"}}>
@@ -97,15 +127,17 @@ class ViewStore extends React.Component {
                 <li className="list-group-item"><h3>email: </h3> <p>{stores.email} </p></li>
                 <li className="list-group-item"><h3>phone: </h3> <p>{stores.phone} </p></li>
               </ul> */}
-              <div className="card-body">
-                <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToEditStore(stores.id)} href="#" className="card-link">Edit Store </a></button>
-                <button type="button" className="btn btn-warning"><a onClick={(event)=>this.handleStoreDeleteRequest(stores.id, event)} href="#" className="card-link">delete Store</a></button>
-                <button type="button" className="btn btn-warning"><a onClick={() => this.props.changeToAddFlower(stores.id)} href="#" className="card-link">Add Flower </a></button>
 
-                <button type="button" className="btn btn-warning down"><a onClick={() => this.props.changeToViewFlower(stores.id)} href="#" className="card-link">View Flowers </a></button>
+              <div className="card-body">
+              
+                  {floristButtons}
+
+                  <button type="button" className="btn btn-warning down"><a onClick={() => this.props.changeToViewFlower(stores.id)} href="#" className="card-link">View Flowers </a></button>
               </div>
             </div> 
+          
           </div>
+         
         );
       });
 
