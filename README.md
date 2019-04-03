@@ -86,7 +86,7 @@ Flower data:
 - learning more about the react and express, and how to debug the errors.
 - styling the front-end.
 
-***Future plans:***
+***Future plans:***</br>
 1- I would like to add the payment method cash, or by credit card.</br>
 2- I would like to add a google map that will show the nearest flower stores to the user.</br>
 3- i would like to add a filter menu to let the user to search the flower based on price, occasions,etc.</br>
