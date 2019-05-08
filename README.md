@@ -49,9 +49,9 @@ Developers should run these often!
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
 1.  All software code is licensed under GNU GPLv3. For commercial use or
     alternative licensing, please contact legal@ga.co. -->
-![GitHub Logo](src/images/florist.png) 
+![GitHub Logo](src/image/florist.png) 
 # Florist
-![GitHub Logo](src/images/im2.png) 
+![GitHub Logo](src/image/im2.png) 
 Home Page</br>
 #
 
@@ -59,12 +59,12 @@ Home Page</br>
 
 Florist is a website that connect the florist with customerts to buy flowers from different flower stores.</br>
 Once the user wants to create an account they must choose whether they are a customer or florist</br>
-![GitHub Logo](src/images/im5.png) 
+![GitHub Logo](src/image/im5.png) 
 #
 
-![GitHub Logo](src/images/im3.png) 
+![GitHub Logo](src/image/im3.png) 
 Here when the user wants to view flower stores.
-![GitHub Logo](src/images/im4.png) 
+![GitHub Logo](src/image/im4.png) 
 When the user clicks on view flower buttons, it will view different types of flowers for that store.
 #
 there are two type of end users:</br>
