@@ -73,7 +73,7 @@ class App extends Component {
     return (
       <div>
         
-        <audio src ={rain} loop autoPlay />
+          <audio src ={rain} loop controls autoPlay />
         {/* <ReactAudioPlayer src= {rain} autoPlay controls/> */}
         <Nav
       
